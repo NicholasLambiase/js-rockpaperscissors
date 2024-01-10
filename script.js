@@ -24,29 +24,43 @@ function playRound(playerSelection, computerSelection){
     //validate user input
     if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
         //now implement game logic
-    
+        console.log(inputComparisionMssg);
+
         //Immediatly return if there is a tie
         if (playerSelection === computerSelection) {
-            return inputComparisionMssg + tieMessage;
+            console.log(tieMessage);
+            return 2;
         }
-        
+
         if (playerSelection === 'rock') {
-            if (computerSelection === 'paper')
-                return inputComparisionMssg + loseMessage;
-            else
-                return inputComparisionMssg + winMessage;
+            if (computerSelection === 'paper') {
+                console.log(loseMessage);
+                return 0;
+            }
+            else {
+                console.log(winMessage);
+                return 1;
+            }       
         }
         else if (playerSelection === 'paper') {
-            if (computerSelection === 'scissors')
-                return inputComparisionMssg + loseMessage;
-            else
-                return inputComparisionMssg + winMessage;
+            if (computerSelection === 'scissors') {
+                console.log(loseMessage);
+                return 0;
+            }
+            else {
+                console.log(winMessage);
+                return 1;
+            }       
         }
-        else if (playerSelection === 'scissors'){
-            if (computerSelection === 'rock')
-                return inputComparisionMssg + loseMessage;
-            else
-                return inputComparisionMssg + winMessage;
+        else if (playerSelection === 'scissors') {
+            if (computerSelection === 'rock') {
+                console.log(loseMessage);
+                return 0;
+            }
+            else {
+                console.log(winMessage);
+                return 1;
+            }       
         }
     }
     else {
@@ -55,9 +69,29 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game() {
+    let playerSelection
+    let computerSelection
+    let roundResult
+    
+    //Loops through 5 rounds of rock paper scissors
     for (let index = 0; index < 5; index++) {
-        const playerSelection = 'rock';
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection, computerSelection));
+
+        //Asks the user for an input until it is deemed valid
+        do {
+            playerSelection = prompt('Please select Rock, Paper, or Scissors');
+        } while ((playerSelection.toLowerCase() != 'rock' | playerSelection.toLowerCase() != 'paper' | playerSelection.toLowerCase() != 'scissors'));
+
+        computerSelection = getComputerChoice();
+
+        roundResult = playRound(playerSelection, computerSelection);
+
+        //Scoring logic...
+        /*  0 = player loss
+            1 = player win
+            2 = tie
+        */
     }
+
+    //Final message logic
+
 }
