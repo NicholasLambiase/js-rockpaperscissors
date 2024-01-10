@@ -15,8 +15,6 @@ function playRound(playerSelection, computerSelection){
     //ensure playerselection is lowercase
     playerSelection = playerSelection.toLowerCase();
 
-    console.log(playerSelection + '\n');
-
     let inputComparisionMssg = `${playerSelection} vs ${computerSelection}\n`;
     let winMessage = 'You Win! Congrats!!!\n';
     let tieMessage = 'Oh man, that was a close one... It\'s a tie\n';
@@ -53,5 +51,13 @@ function playRound(playerSelection, computerSelection){
     }
     else {
         return 'Please select Rock, Paper, or Scissors\n';
+    }
+}
+
+function game() {
+    for (let index = 0; index < 5; index++) {
+        const playerSelection = 'rock';
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
     }
 }
