@@ -1,3 +1,4 @@
+
 function getComputerChoice(){
     choiceNum = Math.floor(Math.random()*3);
     
@@ -18,10 +19,10 @@ function playRound(playerSelection, computerSelection){
     let tieMessage = 'Oh man, that was a close one... It\'s a tie\n';
     let loseMessage = 'You lose :(\n';
 
-    
     //validate user input
     if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') {
-        //now implement game logic
+        
+        // Show the user the compared inputs
         console.log(inputComparisionMssg);
 
         //Immediatly return if there is a tie
@@ -30,6 +31,7 @@ function playRound(playerSelection, computerSelection){
             return -1;
         }
 
+        // Determine the result based on the player and computer choices
         if (playerSelection === 'rock') {
             if (computerSelection === 'paper') {
                 console.log(loseMessage + '\n');
@@ -71,7 +73,7 @@ function getUserInput() {
     while (!validInput) {
         playerSelection = prompt('Please select Rock, Paper, or Scissors');
         playerSelection = playerSelection.toLowerCase();
-        if (playerSelection !== 'rock' | playerSelection !== 'paper' | playerSelection !== 'scissors') {
+        if (playerSelection === 'rock' | playerSelection === 'paper' | playerSelection === 'scissors') {
             validInput = true;
             return playerSelection;
         }
